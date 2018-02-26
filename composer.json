@@ -1,5 +1,5 @@
 {
-    "name": "everest/everest-src",
+    "name": "everest-php/everest-src",
     "description": "Hooks is a Powerful yet Lightweight PHP Framework for rapid development.",
     "type": "package",
     "require": {
