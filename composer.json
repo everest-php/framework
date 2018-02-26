@@ -19,5 +19,5 @@
             "email": "tika.pahadi@fusionstak.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
