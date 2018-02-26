@@ -1,6 +1,7 @@
 {
     "name": "everest-php/everest-src",
     "description": "Hooks is a Powerful yet Lightweight PHP Framework for rapid development.",
+    "version": "1.0.0",
     "type": "package",
     "require": {
         "pagekit/razr": "0.9.x-dev",
@@ -21,7 +22,7 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.1-dev"
+            "master": "1.0.0"
         }
     }
 }
