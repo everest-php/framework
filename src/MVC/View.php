@@ -64,12 +64,14 @@ class View extends MinifyHelper
 
     public function printView($filePath){
 
-
-        if(!FileSystem::exists(BASE_DIR . "/Views/.cache")){
-            FileSystem::makeDirectory(BASE_DIR . "/Views/.cache");
+        // MARK: TO-DO:
+        // Be able to configure this
+        $cacheDirectory = BASE_DIR . "/.cache";
+        if(!FileSystem::exists($cacheDirectory)){
+            FileSystem::makeDirectory($cacheDirectory);
         }
 
-        $razr = new Engine(new FileSystemLoader(), BASE_DIR . "/Views/.cache" );
+        $razr = new Engine(new FileSystemLoader(), $cacheDirectory );
 
         $page = new \stdClass();
         $page->title = $this->title;
