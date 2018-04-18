@@ -64,15 +64,20 @@ class Route{
         $path = trim($path,"/");
         $paths = explode("/",$path);
 
-        if(count($paths) >= 2) {
+        // If last parameter of a URL is a number, inject it as a parameter id
+        $uri_end = end($paths);
+        if(is_numeric($uri_end)) {
+            array_pop($paths);
+            $vars["id"] = $uri_end;
+        }
 
+        if(count($paths) >= 2) {
 
             /*
              +--------------------------------------------------
              + Case 1 : If URL is complete with method names
              +
            */
-
 
             $method = end($paths);
 
@@ -120,7 +125,7 @@ class Route{
 
         } else if(count($paths) === 1){
             $controller = $paths[0];
-            $method = "index";
+            $method = $_SERVER["REQUEST_METHOD"];
 
             if($this->controllerExists($controller, $method)){
 
@@ -131,11 +136,19 @@ class Route{
                 return true;
             }
 
+            $method = "index";
+            if($this->controllerExists($controller, $method)){
 
+                Globals::setItem("controller",$controller);
+                Globals::setItem("method", $method);
+
+                $this->injectMVC($controller,$method,$vars);
+                return true;
+            }
 
         } else {
             $controller = "home";
-            $method = "index";
+            $method = $_SERVER["REQUEST_METHOD"];
 
             if($this->controllerExists($controller, $method)){
 
@@ -146,6 +159,15 @@ class Route{
                 return true;
             }
 
+            $method = "index";
+            if($this->controllerExists($controller, $method)){
+
+                Globals::setItem("controller",$controller);
+                Globals::setItem("method", $method);
+
+                $this->injectMVC($controller,$method,$vars);
+                return true;
+            }
 
         }
 
@@ -169,37 +191,77 @@ class Route{
         return false;
     }
 
+    private function prepareMethodParameters($vars) {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' || $_SERVER['REQUEST_METHOD'] === 'DELETE') {
+            $vars = array_merge($vars, $_GET);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'PUT' || $_SERVER['REQUEST_METHOD'] === 'PATCH') {
+            if (strpos($_SERVER["CONTENT_TYPE"],'json') !== false) {
+                $model = json_decode(file_get_contents("php://input"));
+                $vars["model"] = $model;
+            } else {
+                $vars["model"] = $_POST;
+            }
+        }
+
+        return $vars;
+    }
+
     private function injectMVC($controller, $method, $vars){
+
+        $vars = $this->prepareMethodParameters($vars);
+
         $controller = "Controllers\\" . ucfirst($controller) . "Controller";
-        $object = new $controller;
+        $method = str_replace("-", "", $method);
 
-        if(method_exists($controller,$method)){
-
-            $view = call_user_func_array(array($object, $method), $vars);
-
-            if( is_object($view) && get_class($view) === "hooks\\MVC\\View"){
-                $view->render();
-            } else {
-                print_r($view);
-            }
-
-        }
-        else if(method_exists($controller,$this->hyphenToCammelCase($method))){
-
-            $method = $this->hyphenToCammelCase($method);
-
-            $view = call_user_func_array(array($object, $method), $vars);
-
-            if( is_object($view) && get_class($view) === "hooks\\MVC\\View"){
-                $view->render();
-            } else {
-                print_r($view);
-            }
-
-        }
-
-        else {
+        // 1. Method Matches the name
+        if (method_exists($controller,$method)) {
+            $this->injectControllerMethodWithParams($controller, $method, $vars);
+        } else {
             Redirect::trigger(500);
+        }
+    }
+
+    private function injectControllerMethodWithParams($controller, $method, $vars) {
+        $reflectionClass = new \ReflectionClass($controller);
+        $refectionMethod = $reflectionClass->getMethod($method);
+        $controllerInstance = $reflectionClass->newInstance();
+
+        $inject = array();
+        foreach ($refectionMethod->getParameters() as $p) {
+            $name = $p->name;
+            if (!isset($vars[$name])) {
+                $vars[$name] = null;
+                continue;
+            }
+
+            $parameterType = $p->getClass();
+            if ($parameterType == null) {
+                $inject[$name] = $vars[$name];
+            } else {
+                $className = $parameterType->name;
+                $obj = new $className;
+                foreach ((array) $vars[$name] as $k => $v) {
+                    $obj->$k = $v;
+                }
+                $inject[$name] = $obj;
+            }
+        }
+
+        $result = $refectionMethod->invokeArgs($controllerInstance, $inject);
+        $this->renderComputerMethod($result);
+    }
+
+    private function renderComputerMethod($view) {
+        if( is_object($view) && get_class($view) === "hooks\\MVC\\View"){
+            $view->render();
+        } else {
+            if (strpos($_SERVER["HTTP_ACCEPT"], 'json') !== false) {
+                echo json_encode($view, JSON_PRETTY_PRINT);
+            } else {
+                print_r($view);
+            }
         }
     }
 
