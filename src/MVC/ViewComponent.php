@@ -18,7 +18,7 @@ class ViewComponent extends MinifyHelper
             $this->componentFile = $this->getViewComponentDefaultView();
         }
 
-        $razr = new Engine(new FilesystemLoader(), BASE_DIR . "/Views/.cache" );
+        $razr = new Engine(new FilesystemLoader(), BASE_DIR . "/.cache" );
 
         echo $razr->render($this->componentFile, $this->registeredVariables);
     }
