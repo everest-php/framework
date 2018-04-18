@@ -73,6 +73,12 @@ class Route{
              +
            */
 
+            // If last parameter of a URL is a number, inject it as a parameter id
+            $uri_end = end($paths);
+            if(is_numeric($uri_end)) {
+                array_pop($paths);
+                $vars["id"] = $uri_end;
+            }
 
             $method = end($paths);
 
