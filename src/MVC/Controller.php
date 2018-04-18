@@ -2,43 +2,31 @@
 
 namespace hooks\MVC;
 
-
-use hooks\Storage\FileSystem;
-
 abstract class Controller
 {
-
-    /*
-    public function put($id = null){
-
+    public function ok($result = null) {
+        return $this->statusCode(200, $result);
     }
-
-    public function update($id = null){
-
+    public function created($result = null) {
+        return $this->statusCode(201, $result);
     }
-
-    public function delete($id = null){
-
+    public function accepted($result = null) {
+        return $this->statusCode(202, $result);
     }
-
-    */
-
-    public function parseClass() {
-        $class = get_class($this);
-
-        $re = "/Controllers\\\\([A-Z0-9_]*)Controller/i";
-
-        preg_match($re, $class, $matches);
-
-        if(isset($matches[1])){
-            $cls = $matches[1];
-            $fullCls = "Models\\Context\\" . $cls;
-            if(FileSystem::exists("Models/Context/" . $cls . ".php")
-                && class_exists("Models\\Context\\" . $cls)){
-                return $fullCls;
-            }
-        }
-        return null;
+    public function forbidden($result = null) {
+        return $this->statusCode(403, $result);
     }
-
+    public function badRequest($result = null) {
+        return $this->statusCode(400, $result);
+    }
+    public function unauthorized($result = null) {
+        return $this->statusCode(401, $result);
+    }
+    public function notFound($result = null) {
+        return $this->statusCode(404, $result);
+    }
+    public function statusCode(int $code, $result = null) {
+        http_response_code($code);
+        return $result;
+    }
 }
