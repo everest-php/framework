@@ -1,9 +1,9 @@
 <?php
 
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
-use hooks\Storage\FileSystem;
+use everest\Storage\FileSystem;
 
 class ModelBuilder{
 
@@ -56,7 +56,7 @@ class ModelBuilder{
         $model = "<?php\n\n";
 
         $model .= "namespace ".self::$namespace.";\n\n";
-        $model .= "use hooks\\MVC\\DBContext;\n\n";
+        $model .= "use everest\\MVC\\DBContext;\n\n";
 
         $model .= "class " . self::generateModelName($tableName) . " extends DBContext {\n\n";
 
@@ -113,7 +113,7 @@ class ModelBuilder{
             }
 
             else if($col->Field == "image"){
-                $data[$col->Field] = "hooks\\Media\\Image";
+                $data[$col->Field] = "everest\\Media\\Image";
             }
 
             else if(in_array($col->Field, $tables)){

@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\Media;
+namespace everest\Media;
 
 
-use hooks\Storage\FileSystem;
-use hooks\Utils\Etc;
+use everest\Storage\FileSystem;
+use everest\Utils\Etc;
 
 class ImageUploader
 {

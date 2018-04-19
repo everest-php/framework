@@ -1,9 +1,9 @@
 <?php
 
-namespace hooks\DataBase\Statements;
+namespace everest\DataBase\Statements;
 
-use hooks\DataBase\QueryStack;
-use hooks\DataBase\SQLQuery;
+use everest\DataBase\QueryStack;
+use everest\DataBase\SQLQuery;
 use Models\ViewModels\PageResults;
 
 class SelectStatement extends StatementHelper

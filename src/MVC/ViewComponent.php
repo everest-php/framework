@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
 
-use hooks\MVC\TemplateEngine\Engine;
-use hooks\MVC\TemplateEngine\FileSystemLoader;
+use everest\MVC\TemplateEngine\Engine;
+use everest\MVC\TemplateEngine\FileSystemLoader;
 
 class ViewComponent extends MinifyHelper
 {

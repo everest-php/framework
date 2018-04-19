@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
-use hooks\Storage\FileSystem;
-use hooks\Storage\Globals;
-use hooks\Storage\Session;
+use everest\Storage\FileSystem;
+use everest\Storage\Globals;
+use everest\Storage\Session;
 
 class Route{
 
@@ -254,7 +254,7 @@ class Route{
     }
 
     private function renderComputerMethod($view) {
-        if( is_object($view) && get_class($view) === "hooks\\MVC\\View"){
+        if( is_object($view) && get_class($view) === "everest\\MVC\\View"){
             $view->render();
         } else {
             if (strpos($_SERVER["HTTP_ACCEPT"], 'json') !== false) {

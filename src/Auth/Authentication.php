@@ -1,10 +1,10 @@
 <?php
 
 
-namespace hooks\Auth;
+namespace everest\Auth;
 
 
-use hooks\Storage\Session;
+use everest\Storage\Session;
 
 class Authentication
 {

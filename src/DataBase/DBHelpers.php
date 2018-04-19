@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\DataBase;
+namespace everest\DataBase;
 
 
-use hooks\Errors\Error;
-use hooks\Storage\FileSystem;
+use everest\Errors\Error;
+use everest\Storage\FileSystem;
 
 class DBHelpers
 {

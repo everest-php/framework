@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Social;
+namespace everest\Social;
 
 
 class Instagram {

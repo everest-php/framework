@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\Social;
+namespace everest\Social;
 
 
-use hooks\Storage\Cookie;
-use hooks\MVC\Redirect;
+use everest\Storage\Cookie;
+use everest\MVC\Redirect;
 use Facebook\Facebook as FacebookSDK;
 use Facebook\Exceptions\FacebookResponseException as FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException  as FacebookSDKException;

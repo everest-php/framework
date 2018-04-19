@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\MVC\TemplateEngine\Directives;
+namespace everest\MVC\TemplateEngine\Directives;
 
 use Razr\Directive\Directive;
 use Razr\Token;

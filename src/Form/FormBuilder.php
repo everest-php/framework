@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Form;
+namespace everest\Form;
 
 
 class FormBuilder

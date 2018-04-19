@@ -1,10 +1,10 @@
 <?php
 
 
-namespace hooks\Media;
+namespace everest\Media;
 
 
-use hooks\Storage\FileSystem;
+use everest\Storage\FileSystem;
 
 class File
 {

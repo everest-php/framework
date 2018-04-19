@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Storage;
+namespace everest\Storage;
 
 
 abstract class DBObject

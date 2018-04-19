@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\MVC\TemplateEngine;
+namespace everest\MVC\TemplateEngine;
 
 
 use Razr\Exception\RuntimeException;

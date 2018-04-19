@@ -1,9 +1,9 @@
 <?php
 
-namespace hooks\Storage;
+namespace everest\Storage;
 
 
-use hooks\Media\Image;
+use everest\Media\Image;
 
 class FileSystem
 {

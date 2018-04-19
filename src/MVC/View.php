@@ -1,13 +1,13 @@
 <?php
 
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
 
-use hooks\MVC\TemplateEngine\Engine;
-use hooks\MVC\TemplateEngine\FileSystemLoader;
-use hooks\Storage\FileSystem;
-use hooks\Storage\Globals;
+use everest\MVC\TemplateEngine\Engine;
+use everest\MVC\TemplateEngine\FileSystemLoader;
+use everest\Storage\FileSystem;
+use everest\Storage\Globals;
 
 class View extends MinifyHelper
 {

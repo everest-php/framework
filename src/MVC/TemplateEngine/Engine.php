@@ -1,9 +1,9 @@
 <?php
 
-namespace hooks\MVC\TemplateEngine;
+namespace everest\MVC\TemplateEngine;
 
-use hooks\MVC\TemplateEngine\Directives\ImageDirective;
-use hooks\MVC\TemplateEngine\Directives\StringDirective;
+use everest\MVC\TemplateEngine\Directives\ImageDirective;
+use everest\MVC\TemplateEngine\Directives\StringDirective;
 use Razr\Loader\LoaderInterface;
 
 class Engine extends \Razr\Engine

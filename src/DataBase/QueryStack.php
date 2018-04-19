@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\DataBase;
+namespace everest\DataBase;
 
 
 class QueryStack

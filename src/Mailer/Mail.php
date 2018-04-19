@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Mailer;
+namespace everest\Mailer;
 
 
 class Mail
