@@ -1,15 +1,15 @@
 {
     "name": "everest-php/framework",
-    "description": "Hooks is a Powerful yet Lightweight PHP Framework for rapid development.",
-    "version": "1.0.1",
+    "description": "Everest is a web-api ready, powerful yet lightweight PHP framework for rapid development.",
+    "version": "1.1.0",
     "type": "package",
     "require": {
         "everest-php/razr": "1.0.0",
-        "php": ">=5.3"
+        "php": ">=7.0"
     },
     "autoload": {
         "psr-4": {
-            "hooks\\": "src/"
+            "everest\\": "src/"
         }
     },
     "license": "MIT",

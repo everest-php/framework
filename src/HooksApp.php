@@ -1,16 +1,16 @@
 <?php
 
-namespace hooks;
+namespace everest;
 
-use hooks\Storage\FileSystem;
-use hooks\Utils\Etc;
-use hooks\Utils\GeoLocation;
+use everest\Storage\FileSystem;
+use everest\Utils\Etc;
+use everest\Utils\GeoLocation;
 use Models\App;
 
 
 class HooksApp
 {
-    public $name = "hooks App";
+    public $name = "everest App";
 
     protected static $defaults = [
     ];

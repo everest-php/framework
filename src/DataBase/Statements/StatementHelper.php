@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\DataBase\Statements;
+namespace everest\DataBase\Statements;
 
 
-use hooks\DataBase\DBConnection;
-use hooks\DataBase\SQLQuery;
+use everest\DataBase\DBConnection;
+use everest\DataBase\SQLQuery;
 
 abstract class StatementHelper
 {

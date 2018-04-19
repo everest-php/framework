@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Social;
+namespace everest\Social;
 use App\Blog\BlogApp;
 
 

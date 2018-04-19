@@ -1,10 +1,10 @@
 <?php
 
 
-namespace hooks\DataBase\Statements;
+namespace everest\DataBase\Statements;
 
 
-use hooks\DataBase\SQLQuery;
+use everest\DataBase\SQLQuery;
 
 class InsertStatement extends StatementHelper
 {

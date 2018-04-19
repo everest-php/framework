@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\Utils;
+namespace everest\Utils;
 
 
 class PageResults

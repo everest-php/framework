@@ -1,11 +1,11 @@
 <?php
-namespace hooks\Social;
+namespace everest\Social;
 
 
 use Facebook\Facebook;
 use Facebook\Exceptions\FacebookResponseException as FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException as FacebookSDKException;
-use hooks\Storage\Cookie;
+use everest\Storage\Cookie;
 
 class FacebookUtils
 {

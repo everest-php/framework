@@ -1,9 +1,9 @@
 <?php
-namespace hooks\DataBase;
+namespace everest\DataBase;
 
-use hooks\Errors\Error;
-use hooks\MVC\Route;
-use hooks\Utils\PageResults;
+use everest\Errors\Error;
+use everest\MVC\Route;
+use everest\Utils\PageResults;
 
 class SQLQuery
 {

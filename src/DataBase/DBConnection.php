@@ -1,7 +1,7 @@
 <?php
 
 
-namespace hooks\DataBase;
+namespace everest\DataBase;
 
 
 class DBConnection extends \PDO

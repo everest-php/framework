@@ -1,10 +1,10 @@
 <?php
 
-namespace hooks\Utils;
+namespace everest\Utils;
 
 
 
-use hooks\Storage\Request;
+use everest\Storage\Request;
 
 class Etc
 {

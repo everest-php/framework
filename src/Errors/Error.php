@@ -1,10 +1,10 @@
 <?php
-namespace hooks\Errors;
+namespace everest\Errors;
 
 
-use hooks\Storage\FileSystem;
-use hooks\Utils\Etc;
-use hooks\Utils\GeoLocation;
+use everest\Storage\FileSystem;
+use everest\Utils\Etc;
+use everest\Utils\GeoLocation;
 
 class Error
 {

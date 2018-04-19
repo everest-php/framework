@@ -1,5 +1,5 @@
 <?php
-namespace hooks\Storage;
+namespace everest\Storage;
 
 
 class Session implements  Storage

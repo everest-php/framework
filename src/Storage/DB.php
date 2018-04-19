@@ -1,8 +1,8 @@
 <?php
 
-namespace hooks\Storage;
+namespace everest\Storage;
 
-use hooks\DataBase\DBConnection;
+use everest\DataBase\DBConnection;
 
 require_once BASE_DIR.'/config/DBConstants.php';
 

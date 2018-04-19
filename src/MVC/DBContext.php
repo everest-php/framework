@@ -1,12 +1,12 @@
 <?php
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
 
-use hooks\DataBase\DBHelpers;
-use hooks\DataBase\Statements\SelectStatement;
-use hooks\Form\FormBuilder;
-use hooks\Utils\Etc;
+use everest\DataBase\DBHelpers;
+use everest\DataBase\Statements\SelectStatement;
+use everest\Form\FormBuilder;
+use everest\Utils\Etc;
 use Models\ViewModels\PageResults;
 
 abstract class DBContext extends DBContextRelational

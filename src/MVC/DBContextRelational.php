@@ -1,9 +1,9 @@
 <?php
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
 
-use hooks\Storage\FileSystem;
+use everest\Storage\FileSystem;
 
 abstract class DBContextRelational
 {

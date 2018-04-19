@@ -1,6 +1,6 @@
 <?php
 
-namespace hooks\MVC;
+namespace everest\MVC;
 
 
 class Redirect
